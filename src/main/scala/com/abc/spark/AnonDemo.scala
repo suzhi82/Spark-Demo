@@ -6,15 +6,7 @@ import org.apache.spark.rdd.RDD
 
 object AnonDemo {
 
-  def anonymise(rdd: RDD[String]): RDD[String] = {
-    rdd.map(_.split(",")).map {
-      case Array(fn, ln, addr, bd) => "********,********,********," + bd
-      case _ => ""
-    }
-  }
-
   def main(args: Array[String]): Unit = {
-
     // 1. Create SparkConf
     val conf: SparkConf = new SparkConf().setAppName("AnonDemo")
 
@@ -32,6 +24,18 @@ object AnonDemo {
 
     // 6. Close SparkContext
     sc.stop()
-
   }
+
+
+  /**
+    * @param rdd whick need to be anonymised
+    * @return an anonymised rdd
+    */
+  def anonymise(rdd: RDD[String]): RDD[String] = {
+    rdd.map(_.split(",")).map {
+      case Array(fn, ln, addr, bd) => "********,********,********," + bd
+      case _ => ""
+    }
+  }
+
 }

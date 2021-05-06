@@ -1,5 +1,6 @@
 package com.abc.spark
 
+import org.apache.hadoop.mapred.FileAlreadyExistsException
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 import org.scalatest.{BeforeAndAfter, FlatSpec}
@@ -45,6 +46,15 @@ class AnonDemoTest extends FlatSpec with BeforeAndAfter {
     val rdd: RDD[String] = sc.textFile("E:\\temp\\data\\data.csv")
     val anonRDD: RDD[String] = AnonDemo.anonymise(rdd)
     anonRDD.saveAsTextFile("E:\\temp\\data\\output")
+  }
+
+  // Test 5
+  it should "throw a FileAlreadyExistsException" in {
+    assertThrows[FileAlreadyExistsException] {
+      val rdd: RDD[String] = sc.textFile("E:\\temp\\data\\data.csv")
+      val anonRDD: RDD[String] = AnonDemo.anonymise(rdd)
+      anonRDD.saveAsTextFile("E:\\temp\\data\\output")
+    }
   }
 
   // Create SparkContext before tests
