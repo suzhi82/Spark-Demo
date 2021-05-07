@@ -1,5 +1,6 @@
-package com.abc.spark
+package com.abc.spark.test
 
+import com.abc.spark.AnonDemo
 import org.apache.hadoop.mapred.FileAlreadyExistsException
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
