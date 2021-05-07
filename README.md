@@ -24,6 +24,6 @@ In other words, Spark's slice size depends on which is smaller, `blockSize` or `
 
 When Spark's `Driver` cuts the file into slices, it will decompose the logic of `RDD` processing into tasks and give them to each `Executor` to run, so that if there are enough resources to create containers running Driver and Executors, any data set should be handled.
 
-Meanwhile, in order to save disk space, we can use a fast compression format that supports slicing, such as `lzo`.
+Meanwhile, in order to save disk space, we can use a fast compression format that supports slicing, such as `lzo` (remember to create an `lzo index`, otherwise slicing is not supported).
 
 
