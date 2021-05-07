@@ -2,7 +2,7 @@
 
 ## Main files
 Main program: `/src/main/scala/com/abc/spark/AnonDemo.scala`  
-Test unit:    `/src/main/scala/com/abc/spark/AnonDemoTest.scala`
+Test unit:    `/src/test/scala/com/abc/spark/test/AnonDemoTest.scala`
 
 
 ## How big files can be processed?
